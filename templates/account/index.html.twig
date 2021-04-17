@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compte - La Boutique Francaise!{% endblock %}
+
+{% block content %}
+    <a href="{{ path('account_address_add') }}" class="btn btn-info btn-sm float-right" style="color:#fff;">Ajouter uen adresse</a>
+    <h1>Mon Compte</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+    -<a href="/admin">vous ete un administrateur,accédé aus comptes?</a>
+    {% endif %}
+    <p>Bienvenue {{ app.user.firstName }} dans votre compte</p>.<br>
+    <p>C'est dans cet espace personnel que vous allez gerer toutes vos informations de votre compte.</p>
+    <hr/>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="account-item">
+                <img src="{{ asset('img/secure.png')}}" alt="Modifier mon mot de passe"/>
+                 <a href="{{ path('account_password') }}">Modifier mon password</a>
+            </div>  
+        </div>
+        <div class="col-md-4">
+            <div class="account-item">
+                <img src="{{ asset('img/address.png')}}" alt="Modifier mon mot de passe"/>
+                <a href="{{ path('account_address') }}">Gérer mes adresses</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="account-item">
+                 <img src="{{ asset('img/trade.png')}}" alt="Modifier mon mot de passe"/>
+                <a href="{{ path('account_order') }}">Mes commandes</a>
+            </div>
+        </div>
+    </div>
+    <hr/>
+{% endblock %}

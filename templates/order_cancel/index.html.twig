@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur de payemement -La Boutique Francaise{% endblock %}
+
+{% block content %}
+    <h2>Erreur de payemement</h2>
+    <p>
+        Bonjour <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong> ,<br><br>
+        Il semblairait que votre payement est échoué pour votre commande n°<strong>{{ order.reference }}</strong>.<br>
+        Une confirmation d'erreur vient de vous etre envoyé par émail à l'adresse <strong>{{ order.user.email }}</strong>.
+    </p>
+    <a href="{{ path('order') }}">Réessayer le payemement</a>
+{% endblock %}
